@@ -5,9 +5,13 @@ import os
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
+from pathlib import Path
+
+
 # Load variables from .env file
-load_dotenv()
-GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY")
+env_path = Path(__file__).parent / ".env"
+load_dotenv(dotenv_path=env_path)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 
 def extract_text_from_pdf(uploaded_file):
